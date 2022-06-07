@@ -21,7 +21,7 @@ input {
 #user-input {
     width: 786px;
     height: 16px;
-    padding-left: 12px;
+    padding-left: 20px;
     padding-bottom: 10px;
     resize: none;
     caret-color: transparent;
@@ -69,7 +69,7 @@ input:focus {
     height: 16px;
     position: absolute;
     z-index: 3;
-    transform: translateX(32px) translateY(-46px);
+    transform: translateX(40px) translateY(-46px);
 }
 
 .caret-blink {
@@ -79,7 +79,7 @@ input:focus {
     height: 16px;
     position: absolute;
     z-index: 3;
-    transform: translateX(32px) translateY(-46px);
+    transform: translateX(40px) translateY(-46px);
 }
 
 #prompt {
@@ -87,7 +87,7 @@ input:focus {
     position: absolute;
     z-index: 2;
     padding-left: 2px;
-    transform: translateY(3px);
+    transform: translateY(3px) translateX(8px);
 }
 
 #container {
@@ -110,3 +110,34 @@ input:focus {
 
 @-webkit-keyframes blink { 50% { visibility: hidden; }}
 @keyframes blink { 50% { visibility: hidden }}
+
+
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* @media (min-width:320px) { 
+    #container {
+        display: block;
+    }
+
+    #terminal {
+        width: 98%;
+    }
+} */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* @media (min-width:481px) {
+    #container {
+        display: block;
+    }
+
+    #terminal {
+        width: 90%;
+    }
+} */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+/* @media (min-width:641px) {  } */
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+/* @media (min-width:961px) {  } */
+/* big landscape tablets, laptops, and desktops */
+/* @media (min-width:1025px) {  } */
+/* hi-res laptops and desktops */
+/* @media (min-width:1281px) {  } */

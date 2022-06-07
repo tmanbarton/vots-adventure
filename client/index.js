@@ -1,4 +1,4 @@
-let caretPosition = 32;     // In pixels
+let caretPosition = 40;     // In pixels
 const userInput = $('#user-input');
 const caret = $('#caret');
 
@@ -14,7 +14,7 @@ $(function() {
             moveTextUp(result);
         }
         // Move the caret when left or right arrow keys are pressed
-        else if(caretPosition !== 32 && event.key === 'ArrowLeft') {
+        else if(caretPosition !== 40 && event.key === 'ArrowLeft') {
             stopBlinking();
             // All these * 8 because ubuntu mono is 8px wide
             caretPosition = (userInput[0].selectionStart * 8) + 24;
@@ -23,9 +23,9 @@ $(function() {
                 moveCaret(caretPosition);
             }
         }
-        else if(caretPosition < userInput.val().length * 8 + 32 && event.key === 'ArrowRight') {
+        else if(caretPosition < userInput.val().length * 8 + 40 && event.key === 'ArrowRight') {
             stopBlinking();
-            caretPosition = ((userInput[0].selectionStart + 1) * 8) + 32;
+            caretPosition = ((userInput[0].selectionStart + 1) * 8) + 40;
             let width = userInput[0].offsetWidth;
             if(caretPosition <= width) {
                 moveCaret(caretPosition);
@@ -35,7 +35,7 @@ $(function() {
 
     // Move blinking caret to index in text where user clicked
     userInput.on('click', function() {
-        caretPosition = (userInput[0].selectionStart * 8) + 32;
+        caretPosition = (userInput[0].selectionStart * 8) + 40;
         let width = userInput[0].offsetWidth;
         if(caretPosition <= width) {
             moveCaret(caretPosition);
@@ -47,7 +47,7 @@ $(function() {
         stopBlinking();
         let input = userInput.val();
         input = input.replace(/\s/g, '&nbsp;');
-        caretPosition = (userInput[0].selectionStart * 8) + 32;
+        caretPosition = (userInput[0].selectionStart * 8) + 40;
         let width = userInput[0].offsetWidth;
         if(caretPosition <= width) {
             moveCaret(caretPosition);
@@ -80,8 +80,8 @@ $(function() {
         display[0].innerHTML += (text === '') ? '<p>&nbsp;</p>' : '<p>' + text + '</p>';
         // Reset values
         userInput.val('');
-        caret[0].style.transform = 'translateX(32px) translateY(-46px)';
-        caretPosition = 32;
+        caret[0].style.transform = 'translateX(40px) translateY(-46px)';
+        caretPosition = 40;
     }
 
 });
