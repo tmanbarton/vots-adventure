@@ -74,7 +74,7 @@ function look() {
 function inven() {
     let retVal = '';
     if(inventory.length === 0) {
-        return "You aren't carrying anything!";
+        return "You aren't carrying anything!\n";
     }
     for(let i = 0; i < inventory.length; i++) {
         retVal += inventory[i].inventoryPrint + '\n';
@@ -193,7 +193,7 @@ function turn() {
     else {
         dam.connectingLocations.push({ directions: west, location: lakeTown });
         dam.connectingLocations.push({ directions: down, location: lakeTown });
-        dam.description = "You are on the south side of an empty lake. There's a path going west and there's a dam to the north.";
+        dam.description = "You're on a short dam on the east end of an empty lake. Close by is a wheel with its axel extending deep into the dam. Its orange metal has faded to rust except for some different metal at the center, shining in the sun. There's a large magnet stuck to this part of the wheel. South leads around the lake and to the north there's a set of stairs.";
         tailings.description = "All around are piles of tailings that look like they have been puked into this valley. There's not much else to be seen except the entrance to a mine to the south. There's a path leading to the east and another to the north.";
         intersection.description = "You have reached an intersection in the road. It leads into the forest to the north and west. The southern road goes into a thinner part of the forest.";
         driveway.description = "You are at the west end of a dirt road surrounded by a forest of pine trees. There is a small gap to the north that exposes a steep, dirt driveway sloping down into the forest. Looking down the road to the east you can see over the trees and into the valley. There's also a foot path going northwest.";
@@ -211,7 +211,8 @@ function solve(input) {
             return "That's not something you can solve.";
         }
         else {
-            return 'solve';
+            cube.solving = true;
+            return "            ______\n           |      |\n           |   U  |\n     ______|______|______ ______\n    |      |      |      |      |\n    |   L  |   F  |   R  |   B  |\n    |______|______|______|______|\n           |      |\n           |   D  |\n           |______|\nf - front clockwise\nr' - right counterclockwise\nd2 - down 180 degrees\nx - r but rotate whole cube\ny' - u' but turn whole cube\nz - f but turn whole cube\nm - l but only middle layer\ne' - u' but only middle layer\ns - f but only middle layer\n\n" + cubeToString();
         }
     }
 }

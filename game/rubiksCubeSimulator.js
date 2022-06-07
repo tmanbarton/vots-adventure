@@ -11,38 +11,49 @@ function executeTurn(turn) {
         case "r'":
         case 'r2':
             rightTurn(turn);
+            break;
         case 'l':
         case "l'":
         case 'l2':
             leftTurn(turn);
+            break;
         case 'f':
         case "f'":
         case 'f2':
             frontTurn(turn);
+            break;
         case 'b':
         case "b'":
         case 'b2':
             backTurn(turn);
+            break;
         case 'u':
         case "u'":
         case 'u2':
             upTurn(turn);
+            break;
         case 'd':
         case "d'":
         case 'd2':
             downTurn(turn);
+            break;
         case 'x':
         case "x'":
         case 'x2':
             xTurn(turn);
+            break;
         case 'y':
         case "y'":
         case 'y2':
             yTurn(turn);
+            break;
         case 'z':
         case "z'":
         case 'z2':
             zTurn(turn);
+            break;
+        default:
+            return "That isn't a side you can turn.";
     }
 }
 

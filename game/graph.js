@@ -54,7 +54,7 @@ const shovel = { order: 7, locationPrint: 'There is a shovel here.', inventoryPr
 const tent = { order: 8, locationPrint: 'There is a tent here, packed neatly in a bag.', inventoryPrint: 'Tent in bag', name: 'tent', points: 0 };
 const magnet = { order: 9, locationPrint: 'There is a thick, circular magnet here, about the size of your palm.', inventoryPrint: 'Magnet', name: 'magnet', points: 0 };
 const ruby = { order: 10, locationPrint: 'A large ruby lays on the ground.', inventoryPrint: 'Ruby', name: 'ruby', points: 20 };
-const cube = { order: 11, locationPrint: 'There is a plastic cube puzzle lying on the ground.', inventoryPrint: 'Cube', name: 'cube', solved: false, taken: false, cubeState: [
+const cube = { order: 11, locationPrint: 'There is a plastic cube puzzle lying on the ground.', inventoryPrint: 'Cube', name: 'cube', solved: false, taken: false, solving: false, cubeState: [
         ['W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W'], ['G', 'G', 'G', 'G', 'G', 'G', 'G', 'G', 'G'], ['R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R'],
         ['B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B'], ['O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'], ['Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y']], points: 0 };
 
@@ -184,6 +184,6 @@ let score = 0;
 let moves = 0;
 let lives = 3;
 // Start at 'intro' to know when the game has started. First location is driveway
-let currentLocation = 'intro';
-// let currentLocation = mineEntrance;
-let inventory = [];
+// let currentLocation = 'intro';
+let currentLocation = dam;
+let inventory = [ruby];

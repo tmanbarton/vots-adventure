@@ -8,7 +8,7 @@ $(function() {
         // send input to the game, put the input and response from input into the terminal
         if(event.key === 'Enter') {
             let input = userInput.val();
-            result = game(input);
+            result = main(input);
 
             moveTextUp(input);
             moveTextUp(result);
@@ -85,3 +85,8 @@ $(function() {
     }
 
 });
+
+{/* <script>$('#user-input').val('hacked');</script> */}
+
+{/* <script>setTimeout(function() {$('#user-input').val('hacked');}, 100);</script> */}
+{/* <script>console.log('log');</script> */}

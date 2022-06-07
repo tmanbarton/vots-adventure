@@ -1,17 +1,20 @@
-function game(input) {
-    input = input.toLowerCase();
-    if(input.split(' ').length >= 3) {
-        return 'I only understand one and two word commands. Try commands like get key or drop shovel to interact with items and cardinal directions (north, south, east, west, ne, sw, ...) to move.\n';
+function main(input) {
+    input = input.toLowerCase().trim();
+    if(cube.solving) {
+        let turns = input.split(' ');
+        for(let i = 0; i < turns.length; i++) {
+            executeTurn(input);
+        }
+        return cubeToString();
     }
     // If you haven't started the game yet, you have to say if you want instructions or not
     else if(currentLocation === 'intro') {
         if(input === 'no' || input === 'n') {
             currentLocation = driveway;
-            let algorithm = scrambleCube();
-            for(let i = 0; i < algorithm.length; i++) {
-                executeTurn(algorithm[i].toLowerCase());
-            }
-            // return cubeToString() + '\n';
+            // let algorithm = scrambleCube();
+            // for(let i = 0; i < algorithm.length; i++) {
+            //     executeTurn(algorithm[i].toLowerCase());
+            // }
             return currentLocation.description + '\n\n';
         }
         else if(input === 'yes' || input === 'y') {
@@ -20,7 +23,7 @@ function game(input) {
             for(let i = 0; i < algorithm.length; i++) {
                 executeTurn(algorithm[i].toLowerCase());
             }
-            return "Scattered around the mountain range that you're currently on are various versions of abandoned mining towns. Some are tiny with only a few buildings and no accessabe mine anymore whereas others still have many standing buildings with much of their contents still intact. There may even be multiple entrances to a mine in the big towns. I will be your eyes and hands. Direct me with 1 or 2 word commands. I only look at the first 5 letters of words, so you'll have to use \"ne\" for \"northeast\" in order to distinguish from \"north\". For information on how to end your adventure, etc., type \"info\".\n\n"
+            return "Scattered around the mountain range that you're currently on are various versions of abandoned mining towns. Some are tiny with only a few buildings and no accessable mine anymore whereas others still have many standing buildings with much of their contents still intact. There may even be multiple entrances to a mine in the big towns. I will be your eyes and hands. Direct me with 1 or 2 word commands. I only look at the first 5 letters of words, so you'll have to use \"ne\" for \"northeast\" in order to distinguish from \"north\". For information on how to end your adventure, etc., type \"info\".\n\n"
             + currentLocation.description + '\n\n';
         }
         else {
@@ -37,7 +40,7 @@ function game(input) {
         // reset quit flag if you don't actually want to quit
         if(input === 'no' || input === 'n') {
             currentLocation.quitted = false;
-            return 'OK\n';
+            return 'OK\n\n';
         }
         // Reset game and quit flag when you quit
         else if(input === 'yes' || input === 'y') {
@@ -49,6 +52,9 @@ function game(input) {
         else {
             return 'Please answer the question.\n\n';
         }
+    }
+    else if(input.split(' ').length >= 3) {
+        return 'I only understand one and two word commands. Try commands like get key or drop shovel to interact with items and cardinal directions (north, south, east, west, ne, sw, ...) to move.\n\n';
     }
     else if(allDirections.includes(input)) {
         return move(input) + '\n';
@@ -64,7 +70,7 @@ function game(input) {
 // determine if the input is a direction and if it is a valid direction from the current location
 function move(input) {
     if(input === 'back' || input === 'go back') {
-        return 'I do not now everything. But one thing I do: forget what lies behind and strain to what lies ahead. In any case, "back" doesn\'t work.\n';
+        return 'I do not know everything. But one thing I do: forget what lies behind and strain to what lies ahead. In any case, "back" doesn\'t work.\n';
     }
     else {
         let currentConnections = currentLocation.connectingLocations;
@@ -180,7 +186,7 @@ function takeAction(verb, input) {
         if(input === '') {
             return 'What do you want to fill?\n';
         }
-        return fill(input);
+        return fill(input) + '\n';
     }
     else if(verb === 'solve') {
         if(input === '') {
