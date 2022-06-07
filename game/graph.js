@@ -184,6 +184,6 @@ let score = 0;
 let moves = 0;
 let lives = 3;
 // Start at 'intro' to know when the game has started. First location is driveway
-// let currentLocation = 'intro';
-let currentLocation = dam;
-let inventory = [ruby];
+let currentLocation = 'intro';
+// let currentLocation = dam;
+let inventory = [];
